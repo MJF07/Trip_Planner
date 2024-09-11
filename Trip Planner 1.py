@@ -6,7 +6,7 @@ def greeting ():
     destination=input ("Where are you going on your trip?")
     print ("You are going to",destination," That sounds awesome.")
 
-greeting()
+
 
 def budget ():
     days = input("How many days would you like to travel?")
@@ -25,20 +25,36 @@ def budget ():
     bperday=fltbudget/int_days
     print("Recommended amount to spend per day",bperday)
 
-budget()
+
 
 def time_zone ():
     int_hours=int(input("what is the time difference? Please enter plus or minus the number of hours"))
     print(int_hours)
     int_alttime=int(input("how many hours will the destination will be ahead/behind?"))
     print(int_alttime%24,":00")
-    print("above is the time in your destination if it is noon at home")
-    print(int_alttime%24+12,":00")
-    #second "print"only works in forward direction
+    print("above is the time in your destination if it is midnight at home")
+    if int_alttime >=0:
+        print(int_alttime%24+12,":00")
+        print("above is the time in your destination if it is noon at home.")
+    else:
+        print(int_alttime % 24 - 12, ":00")
+        print("above is the time in your destination the previous day if it is noon at home.")
 
-    print("above is the time in your destination if it is midnight at home.")
-time_zone()
-#maybe think about if then statement if minus then print "previous day ahead"
+
+def distance():
+    km =input ("what is your travel area in square kilometers, since most countries use the metric system?")
+    flt_km=float(km)
+    print(flt_km,"square kilometers.")
+    print(flt_km*0.621371,"square miles.")
+
+def run_trip_planner():
+    greeting()
+    budget()
+    time_zone()
+    distance()
+run_trip_planner()
+
+
 
 
 
